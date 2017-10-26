@@ -5,6 +5,7 @@
  */
 package com.cice.vistas;
 
+import com.cice.logica.Logica;
 import javax.swing.JPanel;
 
 /**
@@ -12,12 +13,15 @@ import javax.swing.JPanel;
  * @author Alicia
  */
 public class Principal extends javax.swing.JFrame {
-
+    
+    Logica logica;
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
+        logica = new Logica(this);
+        txtPantalla.setText("0");
     }
 
     /**
@@ -72,7 +76,6 @@ public class Principal extends javax.swing.JFrame {
         txtPantalla = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         jPanel14 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
@@ -426,6 +429,12 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel25.setBackground(new java.awt.Color(255, 153, 51));
         jPanel25.setForeground(new java.awt.Color(204, 102, 0));
+        jPanel25.setName("restar"); // NOI18N
+        jPanel25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                operacionPulsada(evt);
+            }
+        });
 
         jLabel23.setBackground(new java.awt.Color(255, 255, 255));
         jLabel23.setFont(new java.awt.Font("Comic Sans MS", 1, 48)); // NOI18N
@@ -452,6 +461,12 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel26.setBackground(new java.awt.Color(255, 153, 51));
         jPanel26.setForeground(new java.awt.Color(204, 102, 0));
+        jPanel26.setName("sumar"); // NOI18N
+        jPanel26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                operacionPulsada(evt);
+            }
+        });
 
         jLabel24.setBackground(new java.awt.Color(255, 255, 255));
         jLabel24.setFont(new java.awt.Font("Comic Sans MS", 1, 48)); // NOI18N
@@ -463,14 +478,14 @@ public class Principal extends javax.swing.JFrame {
         jPanel26.setLayout(jPanel26Layout);
         jPanel26Layout.setHorizontalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel26Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel26Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel26Layout.setVerticalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel26Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel26Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
                 .addContainerGap())
@@ -478,6 +493,12 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel27.setBackground(new java.awt.Color(255, 153, 51));
         jPanel27.setForeground(new java.awt.Color(204, 102, 0));
+        jPanel27.setName("multiplicar"); // NOI18N
+        jPanel27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                operacionPulsada(evt);
+            }
+        });
 
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
         jLabel25.setFont(new java.awt.Font("Comic Sans MS", 1, 48)); // NOI18N
@@ -504,6 +525,11 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel28.setBackground(new java.awt.Color(255, 153, 51));
         jPanel28.setForeground(new java.awt.Color(204, 102, 0));
+        jPanel28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                calcular(evt);
+            }
+        });
 
         jLabel26.setBackground(new java.awt.Color(255, 255, 255));
         jLabel26.setFont(new java.awt.Font("Comic Sans MS", 1, 48)); // NOI18N
@@ -530,6 +556,12 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel29.setBackground(new java.awt.Color(255, 153, 51));
         jPanel29.setForeground(new java.awt.Color(204, 102, 0));
+        jPanel29.setName("dividir"); // NOI18N
+        jPanel29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                operacionPulsada(evt);
+            }
+        });
 
         jLabel27.setBackground(new java.awt.Color(255, 255, 255));
         jLabel27.setFont(new java.awt.Font("Comic Sans MS", 1, 48)); // NOI18N
@@ -555,6 +587,11 @@ public class Principal extends javax.swing.JFrame {
         );
 
         jPanel30.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                limpiar(evt);
+            }
+        });
 
         jLabel28.setFont(new java.awt.Font("Comic Sans MS", 1, 48)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(17, 17, 17));
@@ -626,7 +663,9 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        txtPantalla.setBackground(new java.awt.Color(255, 255, 255));
         txtPantalla.setFont(new java.awt.Font("Comic Sans MS", 1, 48)); // NOI18N
+        txtPantalla.setForeground(new java.awt.Color(255, 255, 255));
         txtPantalla.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         txtPantalla.setText("1234567890");
 
@@ -682,7 +721,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txtPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -727,26 +766,15 @@ public class Principal extends javax.swing.JFrame {
 
         jPanel14.setBackground(new java.awt.Color(153, 153, 153));
 
-        jLabel12.setFont(new java.awt.Font("Comic Sans MS", 1, 48)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(17, 17, 17));
-        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("0");
-
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel14Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 100, Short.MAX_VALUE)
         );
 
         jPanel15.setBackground(new java.awt.Color(153, 153, 153));
@@ -1024,7 +1052,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                .addContainerGap(220, Short.MAX_VALUE)
+                .addContainerGap(212, Short.MAX_VALUE)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel21, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel22, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1059,7 +1087,9 @@ public class Principal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(10, 10, 10)
@@ -1071,10 +1101,26 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void numericoPulsado(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_numericoPulsado
-        System.out.println("Botón numérico ha sido pulsado: ");
+        System.out.println("Botón numérico ha sido pulsado ");
         JPanel botonpulsado =(JPanel) evt.getSource();
-        System.out.println(botonpulsado.getName());
+        logica.analizarBotonPulsado(botonpulsado);
+       
     }//GEN-LAST:event_numericoPulsado
+
+    private void operacionPulsada(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_operacionPulsada
+         JPanel operacionpulsada =(JPanel) evt.getSource();
+         logica.seleccionarCalculo(operacionpulsada);
+    }//GEN-LAST:event_operacionPulsada
+
+    private void calcular(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_calcular
+        // TODO add your handling code here:
+        logica.calcular();
+    }//GEN-LAST:event_calcular
+
+    private void limpiar(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_limpiar
+        // TODO add your handling code here:
+        logica.limpiar();
+    }//GEN-LAST:event_limpiar
 
     /**
      * @param args the command line arguments
@@ -1115,7 +1161,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -1175,6 +1220,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JLabel txtPantalla;
+    public javax.swing.JLabel txtPantalla;
     // End of variables declaration//GEN-END:variables
 }
